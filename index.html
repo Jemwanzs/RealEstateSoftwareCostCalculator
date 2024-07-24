@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Calculator by James Sammy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="Container">
+        <div class="Calculator">
+            <form id="Cost-form">
+                <div>
+                    <label class="Title1">Cost Calculator</label>
+                </div>
+                <div>
+                    <label class="Title">By James Sammy</label>
+                </div>
+                <div class="Select">
+                    <div>
+                        <label for="Usertype">User type</label>
+                        <select id="Usertype" name="Usertype" required>
+                            <option value="">Select user type</option>
+                            <option value="Landlord">Landlord</option>
+                            <option value="Property Manager">Property Manager</option>
+                        </select>
+                        <label for="paymentMode">Mode of payment</label>
+                        <select id="paymentMode" name="paymentMode" required>
+                            <option value="">Select payment mode</option>
+                            <option value="Monthly">Monthly</option>
+                            <option value="Quarterly">Quarterly</option>
+                            <option value="Annually">Annually</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="FormRow">
+                        <div class="FormItem">
+                            <label for="rentalIncome">Rental income</label>
+                            <input type="text" id="rentalIncome" name="rentalIncome" required
+                                oninput="formatNumberInput(this)">
+                        </div>
+                    </div>
+                    <div class="FormRow">
+                        <div class="FormItem">
+                            <label for="Units">Number of units</label>
+                            <input type="text" id="Units" name="Units" required oninput="formatNumberInput(this)">
+                        </div>
+                    </div>
+                </div>
+                <div class="Buttons">
+                    <input type="button" value="Calculate" onclick="calculateCost()" class="EqualOperator">
+                </div>
+            </form>
+            <div id="results" class="Results">
+                <h2 class="Head1">Cost Summary</h2>
+                <table>
+                    <tr>
+                        <td>Expected rental income:</td>
+                        <td id="rentalIncomes">NaN</td>
+                    </tr>
+                    <tr>
+                        <td>Number of units:</td>
+                        <td id="UnitsNo">NaN</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td> <!-- This is the blank row -->
+                    </tr>
+                    <tr>
+                        <td>Discount:</td>
+                        <td id="discount">NaN</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>Cost per unit:</td>
+                        <td id="Costperunit">NaN</td> <!-- ID changed to match JavaScript -->
+                    </tr>
+                    <tr class="highlight-row2">
+                        <td>Total Net Cost:</td>
+                        <td id="totalNetCost">NaN</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
